@@ -1,3 +1,4 @@
+import datetime
 '''
 This files is used to store the data types.
 '''
@@ -8,9 +9,13 @@ class Data(object):
     :return:
     '''
     def __init__(self, value, time, date):
-        self.value = value
-        self.time = time
-        self.date = date
+        self.value = float(value)
+        #changing format into time
+        formatTime = time.split(':')
+        self.time = datetime.time(int(formatTime[0]), int(formatTime[1]), int(formatTime[2]))
+        #changing format into date
+        formatDate = date.split('/')
+        self.date = datetime.date(int(formatDate[2]),int(formatDate[1]), int(formatDate[0]))
 
 
 
